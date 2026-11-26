@@ -4,12 +4,12 @@ services:
     runtime: node
     plan: free
     region: singapore
-    buildCommand: npm ci && npm run build
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 22.22.2
       - key: NEXT_PUBLIC_SITE_URL
-        sync: false
+        value: https://gptproto-lite.onrender.com
       - key: NEXT_PUBLIC_GITHUB_URL
         value: https://github.com/Hyxxt/gptproto-lite

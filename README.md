@@ -76,3 +76,18 @@ Render 按 `render.yaml` 构建。构建前设置 `NEXT_PUBLIC_SITE_URL` 为站�
 ## 性能记录
 
 2026-11-26，Lighthouse 13.6.0 移动端配置，模拟限速，单次测量。测试对象为本机生产构建的中文首页。Performance、Accessibility、Best Practices、SEO 均为 100。此结果不包含公网传输和 Render 冷启动。
+
+同日从本机对 Render 中文首页运行同一套 Lighthouse 移动端配置。线上单次结果如下。
+
+| 环境 | Performance | Accessibility | Best Practices | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| 本机生产构建 | 100 | 100 | 100 | 100 |
+| Render 公开首页 | 65 | 100 | 100 | 100 |
+
+本次公网测量的 LCP 为 1.6 秒、CLS 为 0、TBT 为 4,130 毫秒。分数会随设备、网络、实例状态和测试时间波动。
+
+- [线上演示](https://gptproto-lite.onrender.com/zh) · [English](https://gptproto-lite.onrender.com/en)
+- 线上：[报告截图](docs/lighthouse/lighthouse-render.png) · [完整 HTML 报告](docs/lighthouse/lighthouse-render.html)
+- 本机：[报告截图](docs/lighthouse/lighthouse-local.png) · [完整 HTML 报告](docs/lighthouse/lighthouse-local.html)
+
+在无模型密钥的 Render 实例上，`scripts/smoke.mjs` 的 39 项检查全部通过。手机尺寸的本机 Chrome 验收覆盖了菜单开合、目录筛选、生成两张指定比例的演示图、Key 跨刷新保留及删除、请求日志翻页。
