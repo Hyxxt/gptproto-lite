@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: gptproto-lite
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.2
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: NEXT_PUBLIC_GITHUB_URL
+        value: https://github.com/Hyxxt/gptproto-lite
